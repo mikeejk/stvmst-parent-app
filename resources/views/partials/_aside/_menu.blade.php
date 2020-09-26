@@ -22,6 +22,12 @@
                     <span class="kt-menu__link-text">Map Video</span>
                 </a>
             </li>
+            <li class="kt-menu__item {{ Request::path() === 'all-courses'? 'kt-menu__item--active': '' }}" aria-haspopup="true">
+                <a href="/all-courses" class="kt-menu__link">
+                    <i class="kt-menu__link-icon flaticon2-user"></i>
+                    <span class="kt-menu__link-text">All Courses</span>
+                </a>
+            </li>
             @else
             <li class="kt-menu__item {{ Request::path() === 'home'? 'kt-menu__item--active': '' }}" aria-haspopup="true">
                 <a  href="/home" class="kt-menu__link">

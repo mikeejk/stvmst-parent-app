@@ -123,6 +123,8 @@ Route::get('/courses', 'CourseController@index')->name('courses')->middleware('a
 Route::get('/course-videos/{course}', 'CourseController@getCourseVideos')->middleware('auth');
 Route::get('/map-video', 'CourseController@getCourseVideosForTeacher')->middleware('auth');
 
+Route::get('/all-courses', 'MapVideosController@view')->middleware('auth');
+
 
 
 

@@ -60,4 +60,13 @@ class MapVideosController extends Controller
             return response()->json(['failure' => 'Video Mapping Not Added']);
         }
     }
+
+    public function view()
+    {
+    
+        $allCourses = MapVideo::all();
+        if ($allCourses) {
+          return view('all-courses', compact('allCourses')); 
+        } 
+    }
 }
