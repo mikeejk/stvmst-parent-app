@@ -6,15 +6,18 @@ use Illuminate\Http\Request;
 
 use App\CourseSubject;
 
-class CourseSubjectsController extends Controller {
+class CourseSubjectsController extends Controller
+{
 
     //
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->middleware('auth');
     }
 
-    public function validateSubject($request) {
+    public function validateSubject($request)
+    {
 
         $rules = [
             'new_subject' => 'required'
@@ -27,20 +30,20 @@ class CourseSubjectsController extends Controller {
         return $this->validate($request, $rules, $message);
     }
 
-    public function save(Request $request) {
+    public function save(Request $request)
+    {
 
-        self::validateSubject($request);
+        $this->validateSubject($request);
 
         $add_subject = CourseSubject::Create(
-                ['subject' => request('new_subject')],                
+            ['subject' => request('new_subject')],
         );
-        if($add_subject){
+        if ($add_subject) {
             return response()->json(['success' => 'Subject Added Successfully.']);
-        }else{
-            return response()->json(['failure' => 'Subject Not Added']); 
+        } else {
+            return response()->json(['failure' => 'Subject Not Added']);
         }
-
-        
     }
+
 
 }

@@ -110,7 +110,10 @@ Route::post('/users/teacherAuthenticate', 'TeacherPasswordController@teacherAuth
 
 //Route::post('v-upload', 'VideoUploadController@videoUpload')->middleware('auth');
 Route::post('/save-video', 'VideoUploadController@save')->middleware('auth');
-Route::post('/new-subject', 'CourseSubjectsController@save')->middleware('auth');
+Route::post('/new-subject', 'CourseSubjectsController@save')->middleware('auth'); 
+Route::post('/new-lesson', 'CourseLessonsController@save')->middleware('auth'); 
+Route::post('/new-section', 'CourseSectionsController@save')->middleware('auth'); 
+Route::post('/new-title', 'CourseTitlesController@save')->middleware('auth'); 
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 Route::get('/teacher', 'TeacherController@index')->name('teacher')->middleware('auth');
