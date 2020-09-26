@@ -19,6 +19,7 @@
 
                 <!--begin::Form-->
                 <form class="kt-form" id="newCourseVideo" action="javascript:void(0)"  enctype="multipart/form-data" >
+                  
                     <div class="kt-portlet__body">
                         <div class="kt-section kt-section--first">
                             <div class="form-group">
@@ -121,8 +122,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label>Video URL:</label>
-                                <input type="text" class="form-control" placeholder="Enter Video URL" />                    
+                                <label>Video Id:</label>
+                                <input type="text" class="form-control" name="video_id" placeholder="Enter Video Id" />                    
                             </div>
 
                         </div>
@@ -131,6 +132,9 @@
                         <div class="kt-form__actions">
                             <button type="submit" class="btn btn-primary">Submit</button>                
                         </div>
+                    </div>
+                    <div class="alert d-none mt-5 sm-flex" role="alert" id="mapVideoMessage">
+                        <div class="alert-text"></div>
                     </div>
                 </form>
 
@@ -247,7 +251,7 @@ $(document).ready(function (e) {
 
         $.ajax({
             type: 'POST',
-            url: "/new-lesson",
+            url: "/map-video",
             data: formData,
             cache: false,
             processData: false,
@@ -256,13 +260,13 @@ $(document).ready(function (e) {
                 $('#loading').hide();
                 console.log(data);
                 this.reset();
-                $('#lessonMessage').removeClass('d-none').addClass('alert-success').html(data.success).fadeIn();
+                $('#mapVideoMessage').removeClass('d-none').addClass('alert-success').html(data.success).fadeIn();
             },
             error: function (err) {
                 console.log(err);
                 if (err.status == 422) { // when status code is 422, it's a validation issue
                     console.log(err.responseJSON);
-                    $('#lessonMessage').removeClass('d-none').addClass('alert-warning').html(err.responseJSON.message).fadeIn();
+                    $('#mapVideoMessage').removeClass('d-none').addClass('alert-warning').html(err.responseJSON.message).fadeIn();
                 }
 
             }
