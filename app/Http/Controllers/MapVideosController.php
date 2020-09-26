@@ -63,7 +63,6 @@ class MapVideosController extends Controller
 
     public function view()
     {
-    
         $allCourses = MapVideo::all();
         if ($allCourses) {
           return view('all-courses', compact('allCourses')); 

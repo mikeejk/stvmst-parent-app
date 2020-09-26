@@ -2,7 +2,7 @@
 
 @section('content')
 
-{{ dd('$courseSubjects') }}
+{{ dd($allCourses) }}
 
 
 
